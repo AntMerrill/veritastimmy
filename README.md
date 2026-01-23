@@ -24,6 +24,17 @@ run.sh      # Run the pipeline
 setup_venv.sh   # One-line environment setup
 requirements.txt
 
+## Wiki Utilities
+
+Use `bin/wiki_lang_pick.py` to list a page's available language versions and
+print the selected version's raw wikitext for analysis or comparison.
+
+Examples:
+- List language versions:
+  `python3 bin/wiki_lang_pick.py "Tim Ballard" --list`
+- Pick a version and output raw wikitext:
+  `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 2 --raw`
+
 ## Configuration
 
 Application defaults live in `conf/app_config.json`.  At runtime
