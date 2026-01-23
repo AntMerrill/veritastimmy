@@ -1,1 +1,3 @@
 tests/outputs/
+# Local MediaWiki credentials (copy from *.example)
+tests/inputs/wiki_credentials.json
