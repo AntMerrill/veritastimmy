@@ -33,6 +33,7 @@ Examples:
 
   # append a message to the talk page (credentials required)
   python3 wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note" --credentials tests/inputs/wiki_credentials.json
+
 """
 
 from __future__ import annotations
