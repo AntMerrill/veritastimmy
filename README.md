@@ -34,6 +34,16 @@ Examples:
   `python3 bin/wiki_lang_pick.py "Tim Ballard" --list`
 - Pick a version and output raw wikitext:
   `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 2 --raw`
+- Post a note to the talk page (requires credentials JSON):
+  `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note for editors" --credentials tests/inputs/wiki_credentials.json`
+
+Credentials format (JSON):
+```json
+{
+  "username": "YourBotUsername",
+  "password": "YourBotPassword"
+}
+```
 
 ## Configuration
 
