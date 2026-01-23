@@ -41,3 +41,35 @@ def test_write_output_json(tmp_path):
     assert output_path.suffix == ".json"
     contents = output_path.read_text()
     assert '"sections"' in contents
+
+
+def test_main_reports_output_path(tmp_path, monkeypatch, capsys):
+    def fake_get_langlinks(session, en_title):
+        return {}
+
+    def fake_fetch_wikitext(session, api, title):
+        return "Lead line\n== Section ==\nBody"
+
+    monkeypatch.setattr(wiki_lang_pick, "get_langlinks", fake_get_langlinks)
+    monkeypatch.setattr(wiki_lang_pick, "fetch_wikitext", fake_fetch_wikitext)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "wiki_lang_pick.py",
+            "Tim Ballard",
+            "--pick",
+            "0",
+            "--json",
+            "--out-dir",
+            str(tmp_path),
+        ],
+    )
+
+    exit_code = wiki_lang_pick.main()
+    captured = capsys.readouterr()
+
+    expected_path = tmp_path / "en_tim_ballard.json"
+    assert exit_code == 0
+    assert captured.out == f"Wrote output to {expected_path}\n"
+    assert expected_path.exists()
