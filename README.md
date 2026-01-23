@@ -36,6 +36,8 @@ Examples:
   `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 2 --raw`
 - Post a note to the talk page (requires credentials JSON):
   `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note for editors" --credentials tests/inputs/wiki_credentials.json`
+- Post a note to a user's page (requires credentials JSON):
+  `python3 bin/wiki_user_post.py "ExampleUser" --message "Hello!" --credentials tests/inputs/wiki_credentials.json`
 
 Credentials format (JSON):
 ```json
