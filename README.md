@@ -45,6 +45,10 @@ Credentials format (JSON):
 }
 ```
 
+To avoid committing secrets, copy `tests/inputs/wiki_credentials.json.example` to
+`tests/inputs/wiki_credentials.json` and fill in your real credentials (the
+real file is gitignored).
+
 ## Configuration
 
 Application defaults live in `conf/app_config.json`.  At runtime
