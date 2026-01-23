@@ -5,31 +5,38 @@ Anonymous MediaWiki fetcher with numbered language selection.
 What it does:
 1) Lists language versions (langlinks) for an EN page, numbered.
 2) You pick a number (via --pick N or interactive prompt).
-3) Prints the chosen page's full wikitext body to STDOUT.
+3) Writes the chosen page's full wikitext body to a file in tests/ by default.
 
 New:
 - --raw : print ONLY the wikitext body (no numbered list, no BEGIN/END markers)
+- --json : write JSON output with wikitext + sections
 
 Examples:
   # list versions
   python3 wiki_lang_pick.py "Tim Ballard" --list
 
-  # pick version #2 and print body to STDOUT
+  # pick version #2 and write to tests/
   python3 wiki_lang_pick.py "Tim Ballard" --pick 2
 
   # interactive: list then ask for number
   python3 wiki_lang_pick.py "Tim Ballard"
 
-  # save output (with markers)
-  python3 wiki_lang_pick.py "Tim Ballard" --pick 2 > out.wikitext
+  # save output elsewhere (with markers)
+  python3 wiki_lang_pick.py "Tim Ballard" --pick 2 --out-dir ./exports
 
   # save output (raw body only)
-  python3 wiki_lang_pick.py "Tim Ballard" --pick 2 --raw > out.wikitext
+  python3 wiki_lang_pick.py "Tim Ballard" --pick 2 --raw --out-dir ./exports
+
+  # print output to STDOUT instead of writing a file
+  python3 wiki_lang_pick.py "Tim Ballard" --pick 2 --stdout
 """
 
 from __future__ import annotations
 
 import argparse
+import json
+import re
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import requests
@@ -115,15 +122,99 @@ def print_versions(versions: List[Tuple[str, str]]) -> None:
         print(f"{i}: {lang}\t{title}")
 
 
+def slugify(value: str) -> str:
+    value = value.strip().lower()
+    value = re.sub(r"[^a-z0-9]+", "_", value)
+    value = value.strip("_")
+    return value or "untitled"
+
+
+def split_wikitext_sections(text: str) -> List[dict]:
+    sections: List[dict] = []
+    current = {"title": None, "content": []}
+    for line in text.splitlines():
+        match = re.match(r"^(=+)\s*(.*?)\s*\1\s*$", line)
+        if match:
+            sections.append(
+                {
+                    "title": current["title"],
+                    "content": "\n".join(current["content"]).rstrip(),
+                }
+            )
+            current = {"title": match.group(2), "content": []}
+            continue
+        current["content"].append(line)
+    sections.append(
+        {
+            "title": current["title"],
+            "content": "\n".join(current["content"]).rstrip(),
+        }
+    )
+    return sections
+
+
+def build_output_path(out_dir: Path, lang: str, title: str, suffix: str) -> Path:
+    slug = slugify(f"{lang}_{title}")
+    return out_dir / f"{slug}{suffix}"
+
+
+def write_output(
+    out_dir: Path,
+    lang: str,
+    title: str,
+    text: str,
+    raw: bool,
+    json_output: bool,
+) -> Path:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    if json_output:
+        payload = {
+            "language": lang,
+            "title": title,
+            "wikitext": text,
+            "sections": split_wikitext_sections(text),
+        }
+        path = build_output_path(out_dir, lang, title, ".json")
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+        return path
+
+    path = build_output_path(out_dir, lang, title, ".wikitext")
+    if raw:
+        body = text
+    else:
+        body = "\n".join(
+            [
+                "---BEGIN_WIKITEXT---",
+                text.rstrip(),
+                "---END_WIKITEXT---",
+                "",
+            ]
+        )
+    path.write_text(body)
+    return path
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("title", nargs="?", default="Tim Ballard", help="EN Wikipedia title (default: Tim Ballard)")
     ap.add_argument("--list", action="store_true", help="List numbered language versions and exit")
     ap.add_argument("--pick", type=int, help="Pick a numbered version and print its wikitext to STDOUT")
     ap.add_argument("--raw", action="store_true", help="Print ONLY the wikitext body (no list/markers)")
+    ap.add_argument("--json", action="store_true", help="Write JSON output with wikitext and sections")
+    ap.add_argument(
+        "--out-dir",
+        default="tests",
+        help="Directory to write output files (default: tests)",
+    )
+    ap.add_argument(
+        "--stdout",
+        action="store_true",
+        help="Print output to STDOUT instead of writing to a file",
+    )
     args = ap.parse_args()
 
     en_title = args.title
+    out_dir = Path(args.out_dir)
 
     with requests.Session() as s:
         s.headers.update(
@@ -133,8 +224,8 @@ def main() -> int:
         langlinks = get_langlinks(s, en_title)
         versions = build_numbered_versions(en_title, langlinks)
 
-        # If --raw: do NOT print the numbered list (clean output for piping)
-        if not args.raw:
+        should_print_list = args.list or args.pick is None
+        if should_print_list:
             print_versions(versions)
 
         if args.list:
@@ -148,12 +239,12 @@ def main() -> int:
                 pick_str = input("\nPick a number: ").strip()
                 pick = int(pick_str)
             except Exception:
-                if not args.raw:
+                if args.stdout:
                     print("Invalid selection.", flush=True)
                 return 2
 
         if pick < 0 or pick >= len(versions):
-            if not args.raw:
+            if args.stdout:
                 print(f"Pick must be between 0 and {len(versions)-1}.", flush=True)
             return 2
 
@@ -162,21 +253,31 @@ def main() -> int:
 
         text = fetch_wikitext(s, api, title)
         if text is None:
-            if not args.raw:
+            if args.stdout:
                 print(f"Could not fetch wikitext for {lang}:{title}", flush=True)
             return 3
 
-        if args.raw:
-            # Body only, perfect for piping/redirection
-            print(text, end="" if text.endswith("\n") else "\n")
+        if args.stdout:
+            if args.json:
+                payload = {
+                    "language": lang,
+                    "title": title,
+                    "wikitext": text,
+                    "sections": split_wikitext_sections(text),
+                }
+                print(json.dumps(payload, ensure_ascii=False, indent=2))
+            elif args.raw:
+                print(text, end="" if text.endswith("\n") else "\n")
+            else:
+                print("\n---BEGIN_WIKITEXT---")
+                print(text, end="" if text.endswith("\n") else "\n")
+                print("---END_WIKITEXT---")
         else:
-            print("\n---BEGIN_WIKITEXT---")
-            print(text, end="" if text.endswith("\n") else "\n")
-            print("---END_WIKITEXT---")
+            output_path = write_output(out_dir, lang, title, text, args.raw, args.json)
+            print(f"Wrote output to {output_path}", flush=True)
 
         return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
