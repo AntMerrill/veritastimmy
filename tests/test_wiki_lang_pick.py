@@ -84,3 +84,16 @@ def test_main_reports_output_path(monkeypatch, capsys):
     assert exit_code == 0
     assert captured.out == f"Wrote output to {expected_path}\n"
     assert expected_path.exists()
+
+
+def test_build_talk_title():
+    assert wiki_lang_pick.build_talk_title("Tim Ballard") == "Talk:Tim Ballard"
+    assert wiki_lang_pick.build_talk_title("Talk:Sandbox") == "Talk:Sandbox"
+
+
+def test_load_credentials(tmp_path):
+    creds_path = tmp_path / "creds.json"
+    creds_path.write_text('{"username": "bot", "password": "secret"}')
+    creds = wiki_lang_pick.load_credentials(creds_path)
+    assert creds["username"] == "bot"
+    assert creds["password"] == "secret"

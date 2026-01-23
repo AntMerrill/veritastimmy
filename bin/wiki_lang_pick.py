@@ -10,6 +10,7 @@ What it does:
 New:
 - --raw : print ONLY the wikitext body (no numbered list, no BEGIN/END markers)
 - --json : write JSON output with wikitext + sections
+- --post-talk / --post-talk-file : append a note to the selected talk page
 
 Examples:
   # list versions
@@ -29,6 +30,9 @@ Examples:
 
   # print output to STDOUT instead of writing a file
   python3 wiki_lang_pick.py "Tim Ballard" --pick 2 --stdout
+
+  # append a message to the talk page (credentials required)
+  python3 wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note" --credentials tests/inputs/wiki_credentials.json
 """
 
 from __future__ import annotations
@@ -52,6 +56,13 @@ def api_for_lang(lang: str) -> str:
 def mw_get(session: requests.Session, api: str, **params) -> dict:
     params = {"format": "json", **params}
     r = session.get(api, params=params, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def mw_post(session: requests.Session, api: str, **params) -> dict:
+    params = {"format": "json", **params}
+    r = session.post(api, data=params, timeout=30)
     r.raise_for_status()
     return r.json()
 
@@ -153,6 +164,69 @@ def split_wikitext_sections(text: str) -> List[dict]:
     return sections
 
 
+def load_credentials(path: Path) -> Dict[str, str]:
+    data = json.loads(path.read_text())
+    if not isinstance(data, dict):
+        raise ValueError("Credentials file must contain a JSON object.")
+    username = data.get("username")
+    password = data.get("password")
+    if not username or not password:
+        raise ValueError("Credentials must include 'username' and 'password'.")
+    return {"username": username, "password": password}
+
+
+def build_talk_title(title: str) -> str:
+    if title.lower().startswith("talk:"):
+        return title
+    return f"Talk:{title}"
+
+
+def login(session: requests.Session, api: str, username: str, password: str) -> None:
+    token_res = mw_get(session, api, action="query", meta="tokens", type="login")
+    token = token_res["query"]["tokens"]["logintoken"]
+    login_res = mw_post(
+        session,
+        api,
+        action="login",
+        lgname=username,
+        lgpassword=password,
+        lgtoken=token,
+    )
+    result = login_res.get("login", {}).get("result")
+    if result != "Success":
+        raise RuntimeError(f"Login failed: {result}")
+
+
+def fetch_csrf_token(session: requests.Session, api: str) -> str:
+    token_res = mw_get(session, api, action="query", meta="tokens")
+    return token_res["query"]["tokens"]["csrftoken"]
+
+
+def post_talk_page(
+    session: requests.Session,
+    api: str,
+    title: str,
+    message: str,
+    summary: str,
+) -> str:
+    talk_title = build_talk_title(title)
+    token = fetch_csrf_token(session, api)
+    res = mw_post(
+        session,
+        api,
+        action="edit",
+        title=talk_title,
+        appendtext=message,
+        summary=summary,
+        token=token,
+        bot=True,
+    )
+    edit = res.get("edit", {})
+    if edit.get("result") != "Success":
+        raise RuntimeError(f"Edit failed: {edit}")
+    return edit.get("newrevid", "")
+
+
 def build_output_path(out_dir: Path, lang: str, title: str, suffix: str) -> Path:
     slug = slugify(f"{lang}_{title}")
     return out_dir / f"{slug}{suffix}"
@@ -210,6 +284,23 @@ def main() -> int:
         "--stdout",
         action="store_true",
         help="Print output to STDOUT instead of writing to a file",
+    )
+    ap.add_argument(
+        "--post-talk",
+        help="Append a message to the selected page's talk page (requires --credentials).",
+    )
+    ap.add_argument(
+        "--post-talk-file",
+        help="Append a message from a file to the selected page's talk page (requires --credentials).",
+    )
+    ap.add_argument(
+        "--talk-summary",
+        default="Automated note from wiki_lang_pick.py",
+        help="Edit summary when posting to the talk page.",
+    )
+    ap.add_argument(
+        "--credentials",
+        help="Path to JSON credentials file with username/password for posting.",
     )
     args = ap.parse_args()
 
@@ -275,6 +366,27 @@ def main() -> int:
         else:
             output_path = write_output(out_dir, lang, title, text, args.raw, args.json)
             print(f"Wrote output to {output_path}", flush=True)
+
+        post_message = None
+        if args.post_talk:
+            post_message = args.post_talk
+        elif args.post_talk_file:
+            post_message = Path(args.post_talk_file).read_text()
+
+        if post_message:
+            if not args.credentials:
+                raise SystemExit("--credentials is required when posting to talk pages.")
+            creds = load_credentials(Path(args.credentials))
+            login(s, api, creds["username"], creds["password"])
+            new_rev = post_talk_page(
+                s,
+                api,
+                title,
+                post_message,
+                args.talk_summary,
+            )
+            if args.stdout:
+                print(f"Posted to talk page (rev {new_rev}).", flush=True)
 
         return 0
 
