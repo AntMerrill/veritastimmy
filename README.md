@@ -8,6 +8,17 @@
 2. Run full transcription:
     ./run.sh data/original.mp4
 
+### Conda Setup + Aliases
+
+If you prefer Conda, run:
+
+    ./setup_conda.sh [env_name] [python_version]
+
+This will create/activate a Conda environment, install `requirements.txt`,
+and install shell aliases from `conf/aliases.sh` into
+`~/.veritastimmy_aliases` (sourced from your shell rc files). Edit
+`conf/aliases.sh` to add your preferred shortcuts.
+
 Outputs:
 - Full transcript (.txt)
 - Per-minute JSON
