@@ -51,6 +51,8 @@ Examples:
   `python3 bin/wiki_user_post.py "ExampleUser" --message "Hello!" --credentials tests/inputs/wiki_credentials.json`
 - Replace a user's page contents (requires credentials JSON):
   `python3 bin/wiki_user_put.py "ExampleUser" --message "Updated content" --credentials tests/inputs/wiki_credentials.json`
+- Edit a page with a sample file + add a talk note (requires credentials JSON):
+  `python3 bin/wiki_page_edit.py "Sandbox" --message-file tests/inputs/wiki_page_edit_sample.txt --summary "Update sandbox" --append --talk-message-file tests/inputs/wiki_talk_sample.txt --talk-summary "Note to editors" --credentials tests/inputs/wiki_credentials.json`
 
 Credentials format (JSON):
 ```json

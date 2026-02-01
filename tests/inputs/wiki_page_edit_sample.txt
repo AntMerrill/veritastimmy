@@ -1,0 +1,7 @@
+== Sample update ==
+
+This is a placeholder edit. Replace this text with your real update before
+posting to a live wiki page.
+
+* Source: [https://example.com Example placeholder]
+* Notes: Update the bullet list with real citations.
