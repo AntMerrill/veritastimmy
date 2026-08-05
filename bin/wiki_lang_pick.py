@@ -17,7 +17,7 @@ Examples:
   python3 wiki_lang_pick.py "Tim Ballard" --list
 
   # pick version #2 and write to tests/
-  python3 wiki_lang_pick.py "Tim Ballard" --pick 2
+  python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 1
 
   # interactive: list then ask for number
   python3 wiki_lang_pick.py "Tim Ballard"
@@ -182,6 +182,18 @@ def build_talk_title(title: str) -> str:
     return f"Talk:{title}"
 
 
+def extract_heading(message: str) -> Tuple[Optional[str], str]:
+    """
+    If `message` opens with a MediaWiki section heading (== Title ==),
+    split it into (title, remainder-without-heading). Otherwise (None, message).
+    """
+    stripped = message.lstrip("\n")
+    match = re.match(r"^==\s*(.*?)\s*==[ \t]*\n?", stripped)
+    if not match:
+        return None, message
+    return match.group(1), stripped[match.end():]
+
+
 def login(session: requests.Session, api: str, username: str, password: str) -> None:
     token_res = mw_get(session, api, action="query", meta="tokens", type="login")
     token = token_res["query"]["tokens"]["logintoken"]
@@ -212,16 +224,22 @@ def post_talk_page(
 ) -> str:
     talk_title = build_talk_title(title)
     token = fetch_csrf_token(session, api)
-    res = mw_post(
-        session,
-        api,
-        action="edit",
-        title=talk_title,
-        appendtext=message,
-        summary=summary,
-        token=token,
-        bot=True,
-    )
+
+    params = dict(action="edit", title=talk_title, summary=summary, token=token, bot=True)
+    section_title, body = extract_heading(message)
+    if section_title:
+        # Native "new section" edit: MediaWiki generates the heading and
+        # surrounding blank lines itself, so this can never run into
+        # whatever the previous section happens to end with (the bug that
+        # bit us with plain appendtext: no guaranteed separator, so a
+        # heading with no leading blank line merges into the prior thread).
+        params.update(section="new", sectiontitle=section_title, text=body)
+    else:
+        # No heading in the message: append, but force separation from
+        # whatever's already there.
+        params["appendtext"] = "\n\n" + message.lstrip("\n")
+
+    res = mw_post(session, api, **params)
     edit = res.get("edit", {})
     if edit.get("result") != "Success":
         raise RuntimeError(f"Edit failed: {edit}")
