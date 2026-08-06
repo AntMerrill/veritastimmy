@@ -4,6 +4,7 @@ tests/inputs/wiki_credentials.json
 
 __pycache__/
 *.pyc
+venv/
 
 # Personal machine-bootstrap scripts, not part of the project
 /setup/
