@@ -93,8 +93,7 @@ mimesis/
 ├── bin/               # CLI scripts
 ├── conf/              # Configs
 ├── data/              # Media input
-├── lib/
-│   └── mimesis/       # Consolidated helper package
+├── lib/               # Helper modules
 ├── README.md          # ✔️ Exists
 ├── requirements.txt   # ✔️ Exists
 
