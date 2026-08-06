@@ -6,5 +6,8 @@ __pycache__/
 *.pyc
 venv/
 
+# Local working notes, not for the public repo
+CLAUDE.md
+
 # Personal machine-bootstrap scripts, not part of the project
 /setup/
