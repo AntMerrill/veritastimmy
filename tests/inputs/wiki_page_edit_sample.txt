@@ -1,7 +1,21 @@
-== Sample update ==
+== Propuesta de mejora: descripción del rol de Ballard en HSI (agente vs. analista) ==
 
-This is a placeholder edit. Replace this text with your real update before
-posting to a live wiki page.
+Hola. Propongo aclarar y atribuir con precisión cómo Tim Ballard ha descrito su rol en ''Homeland Security Investigations'' (HSI), porque existen afirmaciones públicas distintas.
 
-* Source: [https://example.com Example placeholder]
-* Notes: Update the bullet list with real citations.
+En una entrevista con FOX 13 (Scripps), Ballard dijo que su puesto en HSI “no fue operacional” y que era “analista” (“Yeah, I was an analyst”). Esto podría añadirse de forma neutral y atribuida para evitar que el artículo afirme como hecho un rol específico (p. ej., “agente encubierto”) sin atribución.
+
+Fuente sugerida:
+<ref>{{Cita noticia
+ |apellido=Herbets
+ |nombre=Adam
+ |título=Operative or intern? Tim Ballard’s story of working for the CIA keeps changing
+ |periódico=FOX 13 News (KSTU)
+ |editorial=Scripps
+ |url=https://www.fox13now.com/news/fox-13-investigates/operative-or-intern-tim-ballards-story-of-working-for-the-cia-keeps-changing
+ |fecha=2023
+ |fechaacceso=2026-01-31
+}}</ref>
+
+Si hay consenso, puedo preparar un borrador breve para integrar esta frase en la sección biográfica apropiada (o en un subapartado de “Carrera”).
+~~~~
+

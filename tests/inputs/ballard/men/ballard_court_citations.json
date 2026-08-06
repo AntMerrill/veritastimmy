@@ -1,0 +1,34 @@
+{
+  "citations": [
+    {
+      "type": "court",
+      "case": "Borys et al. v. Ballard et al.",
+      "document": "Deposition of Jon Lines (Exhibit E)",
+      "date": "2026-01-06",
+      "court": "U.S. District Court for the District of Utah",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30"
+    },
+    {
+      "type": "court",
+      "case": "Borys et al. v. Ballard et al.",
+      "document": "Declaration of Aaron Asay (Exhibit B)",
+      "date": "2025-11-21",
+      "court": "U.S. District Court for the District of Utah",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30"
+    },
+    {
+      "type": "court",
+      "case": "Ballard v. Lynch et al.",
+      "document": "Declaration of Greg Rogers (Exhibit D)",
+      "date": "2025-07-17",
+      "court": "Fourth Judicial District Court of Utah",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30"
+    }
+  ]
+}

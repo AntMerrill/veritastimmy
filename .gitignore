@@ -1,3 +1,9 @@
 tests/outputs/
 # Local MediaWiki credentials (copy from *.example)
 tests/inputs/wiki_credentials.json
+
+__pycache__/
+*.pyc
+
+# Personal machine-bootstrap scripts, not part of the project
+/setup/

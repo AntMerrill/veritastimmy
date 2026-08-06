@@ -1,0 +1,11 @@
+---BEGIN_WIKITEXT---
+{| class="infobox" style="width: 20em;"
+|-
+! colspan="2"  style="text-align:center; font:10em verdana; background:#ccc;"| 3
+|-
+|}
+
+'''Nharhu''' , vito ra tinomboro 3.
+
+[[Category:Nhlayo]]
+---END_WIKITEXT---

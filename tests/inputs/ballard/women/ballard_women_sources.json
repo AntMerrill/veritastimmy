@@ -1,0 +1,73 @@
+{
+  "sources": [
+    {
+      "type": "court",
+      "litigants": "Borys et al. v. Ballard et al.",
+      "court": "U.S. District Court for the District of Utah",
+      "date": "2025-11-21",
+      "document": "Declaration of Sashleigha Hightower (Exhibit N)",
+      "doc_number": "57-14",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30",
+      "subject": "Sashleigha Hightower"
+    },
+    {
+      "type": "court",
+      "litigants": "Borys et al. v. Ballard et al.",
+      "court": "U.S. District Court for the District of Utah",
+      "date": "2025-11-21",
+      "document": "Declaration of Mary Hall (Exhibit M)",
+      "doc_number": "57-13",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30",
+      "subject": "Mary Hall"
+    },
+    {
+      "type": "court",
+      "litigants": "Borys et al. v. Ballard et al.",
+      "court": "U.S. District Court for the District of Utah",
+      "date": "2025-11-21",
+      "document": "Declaration of Celeste Borys (Exhibit L)",
+      "doc_number": "57-12",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30",
+      "subject": "Celeste Borys"
+    },
+    {
+      "type": "court",
+      "litigants": "Borys et al. v. Ballard et al.",
+      "court": "U.S. District Court for the District of Utah",
+      "date": "2025-11-21",
+      "document": "Declaration of Kira Lynch (Exhibit P)",
+      "doc_number": "57-16",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30",
+      "subject": "Kira Lynch"
+    },
+    {
+      "type": "court",
+      "litigants": "Borys et al. v. Ballard et al.",
+      "court": "U.S. District Court for the District of Utah",
+      "date": "2025-11-21",
+      "document": "Declaration of Krista Kacey (Exhibit O)",
+      "doc_number": "57-15",
+      "url": "https://www.pacermonitor.com/public/case/55554510/Borys_et_al_v_Ballard_et_al",
+      "via": "Pacermonitor",
+      "access_date": "2026-01-30",
+      "subject": "Krista Kacey"
+    },
+    {
+      "type": "web",
+      "title": "Righter Lawsuit Against Ballard, O.U.R., etc.",
+      "publisher": "American Crime Journal",
+      "series": "American Crime Journal Investigates: Derailed – Operation Underground Railroad (O.U.R.)",
+      "url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/righter-lawsuit-against-ballard-o-u-r-etc/",
+      "access_date": "2026-01-30",
+      "summary": "Reports that former U.S. Marine Jordana Bree Righter filed a lawsuit against Tim Ballard, Operation Underground Railroad (O.U.R.), and others, alleging sexual harassment and misconduct under the guise of anti-human-trafficking operations."
+    }
+  ]
+}

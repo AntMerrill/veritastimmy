@@ -86,7 +86,8 @@ scripts use as the default mount point for removable storage.
 
 ## Credits
 
-Developed by BG Bear Guards – March 2025
+Developed by BG Bear Guards – March 2025 (renamed 2026-08-05 at project owner's request; the
+prior name was an inside joke that didn't read well out of context, so it's retired.)
 
 mimesis/
 ├── bin/               # CLI scripts
