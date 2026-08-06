@@ -2,8 +2,8 @@ import logging
 import os
 import json
 
-from mimesis.archive import handle_gdrive_tar
-from mimesis.video import extract_audio_from_video, load_app_config
+from archive_utils import handle_gdrive_tar
+from video_utils import extract_audio_from_video, load_app_config
 
 try:
     import whisper
