@@ -66,6 +66,22 @@ To avoid committing secrets, copy `tests/inputs/wiki_credentials.json.example` t
 `tests/inputs/wiki_credentials.json` and fill in your real credentials (the
 real file is gitignored).
 
+## Exhibit Markdown Generation
+
+`scripts/new_exhibit.sh` fills `tpl/exhibit.md.tpl` and writes a markdown
+exhibit doc (plus a run log) to a target directory:
+
+    ./scripts/new_exhibit.sh [run_dir] [doc_basename] [title] [author] [date]
+    # e.g. ./scripts/new_exhibit.sh exhibits/sourcing_1 ex1 "Source Provenance" "" "August 2026"
+
+`scripts/exif2table.sh` builds a markdown "EXIF-Verified Provenance" table
+from one or more image files (requires `exiftool`):
+
+    ./scripts/exif2table.sh path/to/*.jpg >> exhibits/sourcing_1/ex1.md
+
+Ported from `joderswar`'s exhibit tooling; kept output to `.md` only (no
+pandoc/PDF build step here).
+
 ## Configuration
 
 Application defaults live in `conf/app_config.json`.  At runtime
