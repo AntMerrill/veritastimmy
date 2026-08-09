@@ -1,0 +1,306 @@
+{
+  "repo": "veritastimmy",
+  "target_dir": "tests/inputs/ballard/acj/",
+  "source": "americancrimejournal.com ACJ Investigates: Operation Underground Railroad (O.U.R.) archive",
+  "source_index_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/",
+  "downloads": [
+    {
+      "dl_id": "dl1",
+      "date": "2026-08-09",
+      "description": "First dozen items from ACJ Legal Archive: criminal investigations, declarations, deposition, expert reports, first two lawsuits.",
+      "source_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/",
+      "file_count": 12,
+      "files": [
+        {
+          "local_filename": "Davis County Criminal Investigation into Tim Ballard and OUR.pdf",
+          "local_path": "tests/inputs/ballard/acj/Davis County Criminal Investigation into Tim Ballard and OUR.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/davis-county-criminal-investigation-from-2020-2023/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Davis-County-Criminal-Investigation.pdf"
+        },
+        {
+          "local_filename": "Lindon Police Department Report - Tim Ballard.pdf",
+          "local_path": "tests/inputs/ballard/acj/Lindon Police Department Report - Tim Ballard.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/lindon-police-department-report-tim-ballard/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Lindon-PD-Ballard.pdf"
+        },
+        {
+          "local_filename": "Utah County Sheriffs Office Report - Tim Ballard.pdf",
+          "local_path": "tests/inputs/ballard/acj/Utah County Sheriffs Office Report - Tim Ballard.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/utah-county-sheriffs-office-report-tim-ballard/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/UCSO-Ballard.pdf"
+        },
+        {
+          "local_filename": "Declaration of Aaron Asay.pdf",
+          "local_path": "tests/inputs/ballard/acj/Declaration of Aaron Asay.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/declaration-of-aaron-asay/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Declaration-of-Aaron-Asay.pdf"
+        },
+        {
+          "local_filename": "Declaration of Ryan Fisher.pdf",
+          "local_path": "tests/inputs/ballard/acj/Declaration of Ryan Fisher.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/declaration-of-ryan-fisher/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Declaration-of-Ryan-Fisher.pdf"
+        },
+        {
+          "local_filename": "Declaration of Deanna Hanks.pdf",
+          "local_path": "tests/inputs/ballard/acj/Declaration of Deanna Hanks.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/declaration-of-deanna-hanks/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Declaration-of-Deanna-Hanks.pdf"
+        },
+        {
+          "local_filename": "Declaration of Krista Kacey.pdf",
+          "local_path": "tests/inputs/ballard/acj/Declaration of Krista Kacey.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/declaration-of-krista-kacey/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Declaration-of-Krista-Kacey.pdf"
+        },
+        {
+          "local_filename": "Jon Lines Deposition.pdf",
+          "local_path": "tests/inputs/ballard/acj/Jon Lines Deposition.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/jon-lines-deposition/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/02/Jon-Lines-Depo-1.pdf"
+        },
+        {
+          "local_filename": "Dr Dawn Hughes Report.pdf",
+          "local_path": "tests/inputs/ballard/acj/Dr Dawn Hughes Report.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/dr-dawn-hughes-report/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Dr.-Dawn-Hughes-Report.pdf"
+        },
+        {
+          "local_filename": "Declaration of Greg Rogers.pdf",
+          "local_path": "tests/inputs/ballard/acj/Declaration of Greg Rogers.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/declaration-of-greg-rogers/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Declaration-of-Greg-Rogers.pdf"
+        },
+        {
+          "local_filename": "First Amended Complaint - WW et al v Ballard et al.pdf",
+          "local_path": "tests/inputs/ballard/acj/First Amended Complaint - WW et al v Ballard et al.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/lawsuit-against-tim-ballard-and-operation-underground-railroad/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/First-Ballard-Civil-Complaint.pdf"
+        },
+        {
+          "local_filename": "Second Lawsuit Against Tim Ballard OUR and Others.pdf",
+          "local_path": "tests/inputs/ballard/acj/Second Lawsuit Against Tim Ballard OUR and Others.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/second-lawsuit-against-tim-ballard-our-others/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Second-Ballard-Civil-Complaint.pdf"
+        }
+      ]
+    },
+    {
+      "dl_id": "dl2",
+      "date": "2026-08-09",
+      "description": "Remainder of ACJ Legal Archive: remaining lawsuits, court exhibits, motions, witness statements, protective order, separation agreement.",
+      "source_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/",
+      "file_count": 21,
+      "files": [
+        {
+          "local_filename": "Righter v. Ballard, OUR and Matthew Cooper - Lawsuit.pdf",
+          "local_path": "tests/inputs/ballard/acj/Righter v. Ballard, OUR and Matthew Cooper - Lawsuit.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/righter-lawsuit-against-ballard-o-u-r-etc/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Righter-v.-Ballard.pdf"
+        },
+        {
+          "local_filename": "Whitehead v. Utah AG Sean Reyes and OUR - Lawsuit.pdf",
+          "local_path": "tests/inputs/ballard/acj/Whitehead v. Utah AG Sean Reyes and OUR - Lawsuit.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/whitehead-lawsuit-against-utah-attorney-general-sean-reyes-o-u-r/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Whitehead-v.-Reyes-O.U.R.-Ballard.pdf"
+        },
+        {
+          "local_filename": "Kely Johana Suarez Moya v. Tim Ballard and OUR - Lawsuit.pdf",
+          "local_path": "tests/inputs/ballard/acj/Kely Johana Suarez Moya v. Tim Ballard and OUR - Lawsuit.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/kely-johana-suarez-moya-sues-tim-ballard-o-u-r/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Moya-v.-Ballard.pdf"
+        },
+        {
+          "local_filename": "Federal TVPRA Complaint Against Tim Ballard and OUR.pdf",
+          "local_path": "tests/inputs/ballard/acj/Federal TVPRA Complaint Against Tim Ballard and OUR.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/federal-tvpra-complaint-against-tim-ballard-o-u-r/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Ballard-Federal-TVPRA-Complaint.pdf"
+        },
+        {
+          "local_filename": "Second Amended TVPRA Complaint - Ballard OUR Aerial Recovery.pdf",
+          "local_path": "tests/inputs/ballard/acj/Second Amended TVPRA Complaint - Ballard OUR Aerial Recovery.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/second-amended-complaint-for-tvpra/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Second-Amended-Complaint-for-TVPRA.pdf"
+        },
+        {
+          "local_filename": "Ballard v. Morgan Davis - Defendants Answer.pdf",
+          "local_path": "tests/inputs/ballard/acj/Ballard v. Morgan Davis - Defendants Answer.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/ballard-v-davis-defendants-answer/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Ballard-v.-Morgan-Davis-Defendants-Answer.pdf"
+        },
+        {
+          "local_filename": "Exhibit F - Text Messages Between Tim Ballard and JJ (Redacted).pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit F - Text Messages Between Tim Ballard and JJ (Redacted).pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-f-text-messages-between-tim-ballard-jj/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Exh-F-JJ-Texts-Redacted.pdf"
+        },
+        {
+          "local_filename": "Exhibit I - Guerra Oculta Promotional Image.pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit I - Guerra Oculta Promotional Image.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-i-guerra-oculta-promotional-image/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Exh-I-Hidden-War-Poster.pdf"
+        },
+        {
+          "local_filename": "Exhibit J - Myth vs Fact Human Trafficking Graphic.pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit J - Myth vs Fact Human Trafficking Graphic.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-j-myth-vs-fact-human-trafficking-graphic/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Exh-J-Traffickers-Are-Known.pdf"
+        },
+        {
+          "local_filename": "Exhibit K - NY Times Article on Tim Ballard and OUR.pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit K - NY Times Article on Tim Ballard and OUR.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-k-ny-times-article-on-tim-ballard-and-o-u-r/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Exh-K-NYT-Article.pdf"
+        },
+        {
+          "local_filename": "Exhibit S - Text Message Screenshot Belt Communication.pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit S - Text Message Screenshot Belt Communication.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-s-text-message-screenshot-belt-communication/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Exh-S-Belt-Text.pdf"
+        },
+        {
+          "local_filename": "Exhibit T - Buenos Aires Times Article Referencing Tim Ballard.pdf",
+          "local_path": "tests/inputs/ballard/acj/Exhibit T - Buenos Aires Times Article Referencing Tim Ballard.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/exhibit-t-buenos-aires-times-article-referencing-tim-ballard/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Exh-T-Cuneo-Libarona-Article.pdf"
+        },
+        {
+          "local_filename": "Moya v. Ballard - Motion to Dismiss Denied.pdf",
+          "local_path": "tests/inputs/ballard/acj/Moya v. Ballard - Motion to Dismiss Denied.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/moya-v-ballard-motion-to-dismiss-denied/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Moya-v-Ballard-Motion.pdf"
+        },
+        {
+          "local_filename": "Borys v. Ballard - Motion to Release Crime Lab DNA Report.pdf",
+          "local_path": "tests/inputs/ballard/acj/Borys v. Ballard - Motion to Release Crime Lab DNA Report.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/borys-v-ballard-motion-to-release-crime-lab-dna-report/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/Boyrs-v.-Ballard-Motion-Release-Crime-Lab.pdf"
+        },
+        {
+          "local_filename": "Statement of Celeste Borys.pdf",
+          "local_path": "tests/inputs/ballard/acj/Statement of Celeste Borys.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/statement-of-celeste-borys/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Celeste-Borys-Statement.pdf"
+        },
+        {
+          "local_filename": "Statement of Mary Hall.pdf",
+          "local_path": "tests/inputs/ballard/acj/Statement of Mary Hall.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/statement-of-mary-hall/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Mary-Hall-Statement.pdf"
+        },
+        {
+          "local_filename": "Statement of Sashleigha Hightower.pdf",
+          "local_path": "tests/inputs/ballard/acj/Statement of Sashleigha Hightower.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/statement-of-sashleigha-hightower/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Sasha-Hightower-Statement.pdf"
+        },
+        {
+          "local_filename": "Statement of Krista Kacey.pdf",
+          "local_path": "tests/inputs/ballard/acj/Statement of Krista Kacey.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/statement-of-krista-kacey/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Krista-Kacey-Statement.pdf"
+        },
+        {
+          "local_filename": "Statement of Kira Lynch.pdf",
+          "local_path": "tests/inputs/ballard/acj/Statement of Kira Lynch.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/statement-of-kira-lynch/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Kira-Lynch-Statement.pdf"
+        },
+        {
+          "local_filename": "Utah District Court Order - Sexual Violence Protective Order Borys v Ballard.pdf",
+          "local_path": "tests/inputs/ballard/acj/Utah District Court Order - Sexual Violence Protective Order Borys v Ballard.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/utah-district-court-order-sexual-violence-protective-order-in-borys-v-ballard/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/SVPO-Luhn_Redacted.pdf"
+        },
+        {
+          "local_filename": "Separation and Mutual Release Agreement - Timothy Ballard and OUR.pdf",
+          "local_path": "tests/inputs/ballard/acj/Separation and Mutual Release Agreement - Timothy Ballard and OUR.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-legal-archive/separation-and-mutual-release-agreement-timothy-ballard-o-u-r/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/04/Ballard-Separation-Agreement.pdf"
+        }
+      ]
+    },
+    {
+      "dl_id": "dl3",
+      "date": "2026-08-09",
+      "description": "ACJ Financial Archive: IRS determination letter, Form 990 filings 2015-2024, combined financial statements.",
+      "source_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/",
+      "file_count": 12,
+      "files": [
+        {
+          "local_filename": "OUR IRS Determination Letter 2015.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR IRS Determination Letter 2015.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-irs-determination-letter-2015/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2015-IRS-Determination-Letter.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2015.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2015.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-snapshot-2015/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2015-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2016.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2016.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2016/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2016-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2016 Updated.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2016 Updated.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2016-updated/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2016-Form-990-2019-Update.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2017.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2017.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2017/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2017-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2017 Updated.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2017 Updated.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2017-updated/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2017-Form-990-2019-Update.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2018.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2018.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2018/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2018-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2019.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2019.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2019/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2019-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2021.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2021.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2021/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2021-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2023.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2023.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2023/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2023-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Form 990 - 2024.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Form 990 - 2024.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-financial-form-990-2024/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/2024-Form-990.pdf"
+        },
+        {
+          "local_filename": "OUR Combined Financial Statements 2018-2019.pdf",
+          "local_path": "tests/inputs/ballard/acj/OUR Combined Financial Statements 2018-2019.pdf",
+          "acj_page_url": "https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/o-u-r-financial-archive/o-u-r-combined-financial-statements-2018-2019/",
+          "acj_pdf_url": "https://americancrimejournal.com/wp-content/uploads/2026/05/O.U.R.-Assoc-Combined-Financials-2018-2019.pdf"
+        }
+      ]
+    }
+  ],
+  "total_files": 45
+}
