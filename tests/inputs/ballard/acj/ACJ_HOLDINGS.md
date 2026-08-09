@@ -188,19 +188,43 @@ Listed on the archive hub but not opened/inventoried in this pass:
 
 ## Overlap with Existing Case Exhibits
 
-Four ACJ documents duplicate primary sources already in this repo (pulled via
-PACER for the Second Amended Complaint, see `../men/`, `../women/`,
-`../oddball/`, `../complaints/`). Kept as separate copies here since they're
-independently sourced (useful for corroboration), not merged:
+Checked by md5sum against the pre-existing PACER holdings in `../men/`,
+`../women/`, `../oddball/`, `../complaints/` (2026-08-09). The original count
+here ("four") was wrong — it missed the JJ-texts exhibit and three of the
+five women's statements. Corrected tally: **10 of 10 SAC Exhibits already
+held (B–P range) are byte-identical duplicates**, plus **1 same-subject file
+that is NOT identical** and needs a manual look before citing either copy.
+Kept as separate copies here (not merged/deduped) since independent
+provenance is useful for corroboration.
 
-| Person/Doc | PACER copy | ACJ copy |
-|---|---|---|
-| Aaron Asay Declaration | `../men/Doc 57-2 Exh B to SAC Declaration of Aaron Asay.pdf` | `Declaration of Aaron Asay.pdf` |
-| Dr. Dawn Hughes Report | `../oddball/Doc 57-3 Exh C to SAC Dr. Dawn Hughes Report.pdf` | `Dr Dawn Hughes Report.pdf` |
-| Greg Rogers Declaration | `../men/Doc 57-4 Exh D to SAC Declaration of Greg Rogers.pdf` | `Declaration of Greg Rogers.pdf` |
-| Jon Lines Deposition | `../men/Doc 57-5 Exh E to SAC Jon Lines Depo (Redacted).pdf` | `Jon Lines Deposition.pdf` |
-| Krista Kacey Statement | `../women/Doc 57-15 Exh O Krista Kacey Statement.pdf` | `Statement of Krista Kacey.pdf` |
+### Byte-identical (md5sum match)
+
+| SAC Exhibit | Person/Doc | PACER copy | ACJ copy |
+|---|---|---|---|
+| Exh B | Aaron Asay Declaration | `../men/Doc 57-2 Exh B to SAC Declaration of Aaron Asay.pdf` | `Declaration of Aaron Asay.pdf` |
+| Exh C | Dr. Dawn Hughes Report | `../oddball/Doc 57-3 Exh C to SAC Dr. Dawn Hughes Report.pdf` | `Dr Dawn Hughes Report.pdf` |
+| Exh D | Greg Rogers Declaration | `../men/Doc 57-4 Exh D to SAC Declaration of Greg Rogers.pdf` | `Declaration of Greg Rogers.pdf` |
+| Exh F | JJ Text Messages (Redacted) | `../oddball/Doc 57-6 Exh F to SAC JJ Texts (Redacted).pdf` | `Exhibit F - Text Messages Between Tim Ballard and JJ (Redacted).pdf` |
+| Exh L | Celeste Borys Statement | `../women/Doc 57-12 Exh L Celeste Borys Statement.pdf` | `Statement of Celeste Borys.pdf` |
+| Exh M | Mary Hall Statement | `../women/Doc 57-13 Exh M Mary Hall Statement.pdf` | `Statement of Mary Hall.pdf` |
+| Exh N | Sasha/Sashleigha Hightower Statement | `../women/Doc 57-14 Exh N Sasha Hightower Statement.pdf` | `Statement of Sashleigha Hightower.pdf` |
+| Exh O | Krista Kacey Statement | `../women/Doc 57-15 Exh O Krista Kacey Statement.pdf` | `Statement of Krista Kacey.pdf` |
+| Exh P | Kira Lynch Statement | `../women/Doc 57-16 Exh P Kira Lynch Statement.pdf` | `Statement of Kira Lynch.pdf` |
+| n/a | Righter v. Ballard, O.U.R. & Matthew Cooper (lawsuit) | `../women/Righter-v.-Ballard.pdf` | `Righter v. Ballard, OUR and Matthew Cooper - Lawsuit.pdf` |
 
 Note: the ACJ **Declaration** of Krista Kacey (Legal Archive) is a distinct
-document from her **Statement** (also in the Legal Archive, and matching the
-PACER exhibit above) — don't conflate the two when citing.
+document from her **Statement** above — don't conflate the two when citing.
+
+### Same subject, NOT byte-identical — content verified identical
+
+| SAC Exhibit | Person/Doc | PACER copy | ACJ copy | Discrepancy |
+|---|---|---|---|---|
+| Exh E | Jon Lines Deposition | `../men/Doc 57-5 Exh E to SAC Jon Lines Depo (Redacted).pdf` (4,032,588 bytes) | `Jon Lines Deposition.pdf` (3,838,348 bytes) | Different md5 and PDF producer/creation date, but `bin/compare_pdfs.py` shows the full 54-page Q&A transcript text is **identical** — the only diff is the per-page docket stamp. PACER copy = Document 57-5 (Second Amended Complaint, filed 2025-11-21), stamped "EXHIBIT E". ACJ copy = Document 34-10 (an earlier pleading in the same case, `2:24-cv-00794-RJS-JCB`, filed 2025-09-16), stamped "EXHIBIT J". Same deposition, filed as an exhibit twice under two different exhibit letters — not a redaction difference despite the PACER filename saying "(Redacted)". Full diff report: `../../../outputs/pdf_compare/jon_lines_depo_pacer_vs_acj.md`. |
+
+### Not held before this pull (net-new to the repo)
+
+The remaining ~35 ACJ files — all IRS/Form 990 filings, the financial
+statements, the criminal investigation reports, the non-SAC lawsuits (WW et
+al., Moya, Whitehead, TVPRA complaints, Ballard v. Davis), motions, the
+protective order, the separation agreement, and the Krista Kacey
+Declaration — are new sources not previously in this repo.

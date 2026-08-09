@@ -82,6 +82,27 @@ from one or more image files (requires `exiftool`):
 Ported from `joderswar`'s exhibit tooling; kept output to `.md` only (no
 pandoc/PDF build step here).
 
+## Case Exhibit Archive
+
+`tests/inputs/ballard/` holds primary-source court filings and related
+documents for the Ballard civil suits. `tests/inputs/ballard/acj/` holds
+documents pulled from American Crime Journal's ("ACJ") O.U.R./Ballard
+investigative archive; see `ACJ_HOLDINGS.md` in that directory for the full
+inventory and provenance notes.
+
+## PDF Comparison
+
+`bin/compare_pdfs.py` compares two PDFs (checksum, `pdfinfo` metadata, and a
+`pdftotext` content diff) and writes a markdown report. Requires
+poppler-utils (`pdfinfo`, `pdftotext`) on PATH:
+
+    python3 bin/compare_pdfs.py file_a.pdf file_b.pdf \
+        --label-a "PACER" --label-b "ACJ" \
+        --out tests/outputs/pdf_compare/report.md
+
+Core logic lives in `lib/pdf_utils.py`. Used to check duplicate/near-duplicate
+exhibits between the PACER-sourced case files and the ACJ archive above.
+
 ## Configuration
 
 Application defaults live in `conf/app_config.json`.  At runtime
@@ -112,10 +133,3 @@ mimesis/
 ├── lib/               # Helper modules
 ├── README.md          # ✔️ Exists
 ├── requirements.txt   # ✔️ Exists
-
-
-
-## Further Reading
-
-For ideas on simplifying the internal modules, see
-[`docs/library_consolidation.md`](docs/library_consolidation.md).
