@@ -11,3 +11,6 @@ CLAUDE.md
 
 # Personal machine-bootstrap scripts, not part of the project
 /setup/
+
+# Wikipedia article drafts, not for the public repo until posted
+/drafts/
