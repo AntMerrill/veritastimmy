@@ -1,13 +1,18 @@
 # ACJ Holdings — Operation Underground Railroad / Tim Ballard
 
 Inventory of American Crime Journal's "Derailed: Operation Underground Railroad"
-investigative archive, assayed 2026-08-09.
+investigative archive, assayed 2026-08-09, sub-archives completed 2026-08-10.
 
 - Archive hub: https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/
 - Structure: hub/index page with overview pieces, a recent-articles feed
-  ("OUR FILES"), and seven thematic sub-archives. Two sub-archives (Legal
-  Archive, Financial Archive) have been fully crawled and pulled; the
-  remaining five have not been opened yet (see [Not Yet Crawled](#not-yet-crawled-sub-archives)).
+  ("OUR FILES"), and seven thematic sub-archives listed. Of those, five are
+  actually published/linked: **Legal Archive** and **Financial Archive**
+  (both fully crawled and pulled — 45 primary-source PDFs) plus **Public
+  Claims & Narratives**, **Accountability & Scrutiny**, and **The Whiteboard
+  Meeting** (all crawled — turned out to hold zero downloadable documents,
+  just narrative journalism; see their sections below). The other two,
+  **People** and **Organizations & Network**, are listed on the hub but have
+  no live link yet (see [People / Organizations & Network — not live](#people--organizations--network---not-live)).
 - Local files live in this directory (`tests/inputs/ballard/acj/`); see
   `acj_downloads_manifest.json` for the machine-readable version of this list
   (grouped by download batch `dl1`/`dl2`/`dl3`, with source URLs per file).
@@ -176,15 +181,174 @@ Featured articles from the archive hub, all by Damion Moore:
 4. "Audio Reveals Tim Ballard and Ken Krogue Describing Elder Ballard's Prophetic Role" (2024)
 5. "As O.U.R. Flees Utah, Survivors Accuse Organization of Rebranding" (2024)
 
-## Not Yet Crawled Sub-Archives
+## Public Claims & Narratives
 
-Listed on the archive hub but not opened/inventoried in this pass:
+Source: https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/public-claims-narratives/
 
-- Public Claims & Narratives
-- Accountability & Scrutiny
-- The Whiteboard Meeting
-- People profiles
-- Organizations & Network
+Crawled 2026-08-10. **No PDFs or downloadable documents on this page** —
+confirmed by grepping the raw page HTML for `.pdf` (zero hits). This
+sub-archive is commentary/narrative journalism, not a primary-source
+document store, unlike Legal/Financial. Nothing to pull; logging the article
+list for completeness in case any get cited later.
+
+Categories on the page: Sound of Freedom & Media Narratives, Rescue Claims &
+Mission Narratives, Trafficking Statistics & Public Messaging, Faith,
+Mission, and Divine Calling, Fundraising Narratives, Media, Influencers &
+Celebrity Support.
+
+### Articles (not pulled — hosted directly on americancrimejournal.com)
+
+1. Exposing the "Sound of Freedom" Hoax
+2. Operation Underground Railroad's Roots
+3. O.U.R.'s Origin Myth
+4. O.U.R. Quietly Exposes Tim Ballard's Big Lie
+5. The Arrest of Earl Venton Buchanan
+6. O.U.R.'s Prized Propaganda Movie Embroiled in Controversy
+7. It's Time to Ask Tough Questions about Who Operation Underground Railroad Calls "Traffickers"
+8. Tim Ballard Utah's Flim-Flam Man
+9. American Airlines Denies Operation Underground Railroad Partnership Claim
+10. Oklahoma City Rejects Operation Underground Railroad Donation After Review
+11. Her Name Is Delia: The Survivor Behind O.U.R.'s "Liliana" Story
+12. Rambo Reyes & O.U.R.: The Colombian Rescue Mission
+13. Human Trafficking Statistics Explained
+14. Polaris Project is "Deeply Concerned" Over O.U.R.'s "Numbers Game"
+15. Las Vegas Metropolitan PD Human Trafficking Task Force calls out O.U.R.
+16. LDS Church Publicly Denounces Tim Ballard, Operation Underground Railroad
+17. VICE News Exposes Tim Ballard's O.U.R. Poster Child "Liliana" as Elaborate Scam
+
+Note: item 5 (Earl Venton Buchanan arrest) and item 15 (LVMPD task force)
+duplicate titles already logged under Legal Archive's "not pulled" list —
+same article cross-referenced from multiple sub-archives on ACJ's site, not
+a new document.
+
+## Accountability & Scrutiny
+
+Source: https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/accountability-scrutiny/
+
+Crawled 2026-08-10. **No PDFs on this page either** (grepped raw HTML for
+`.pdf`, zero hits) — like Public Claims & Narratives, this is a narrative/
+journalism index, not a document store. Logging article list by category.
+
+### Internal Complaints & Whistleblowers
+
+1. Mutiny at Operation Underground Railroad
+2. I Was Trained by Operation Underground Railroad to be an Undercover Operative Overseas
+3. Tim Ballard's Secret "Whiteboard Meeting" in August 2019
+4. O.U.R. Chief Legal Officer Alessandra Serano Resigns
+5. Operation Underground Railroad: Crimes Uncovered
+6. O.U.R. Continues the Dangerous Practice of Victim & Witness Intimidation
+7. Operation Underground Railroad Retains Controversial Firm Kirton McConkie, Threatens Legal Action Against ACJ
+
+### Organizational Conduct & Leadership
+
+1. Tim Ballard Utah's Flim-Flam Man
+2. O.U.R. Quietly Exposes Tim Ballard's Big Lie
+3. The Rise and Unraveling of Operation Underground Railroad
+4. Operation Underground Railroad's Roots
+5. Operation Underground Railroad Stages Fake College Graduation
+6. Tim Ballard and Sean Reyes Unhinged
+7. Utah Attorney General Sean Reyes and Operation Underground Railroad
+8. What is Utah's Attorney General Smoking?
+9. Testimony of Alessandra Parisi Serano
+
+### Sexual Misconduct & Survivor Allegations
+
+1. Tim Ballard Under Attack: the Sexual Misconduct Allegations
+2. Tim Ballard's Couples Ruse is "Strange Rationalization to Groom Women"
+3. LDS Church Publicly Denounces Tim Ballard, Operation Underground Railroad
+4. Married Couple Launches Second Lawsuit Against Tim Ballard
+5. As O.U.R. Flees Utah, Survivors Accuse Organization of Rebranding to Escape Accountability
+6. Ballard's Disturbing Disclosure of Marital Sexual Issues with "Operative Trainee"
+
+### Institutional & Partner Responses
+
+1. Oklahoma City Rejects Operation Underground Railroad Donation After Review
+2. The Elizabeth Smart Foundation Severed All Ties with O.U.R.
+3. A Divorce From Hell: doTerra & Operation Underground Railroad
+4. doTerra Internal Memo States It Found "Concrete Evidence" of O.U.R. Misconduct
+5. American Airlines Denies Operation Underground Railroad Partnership Claim
+
+### Law Enforcement & Expert Concerns
+
+1. Las Vegas Metropolitan PD Human Trafficking Task Force calls out O.U.R.
+2. Polaris Project is "Deeply Concerned" Over O.U.R.'s "Numbers Game"
+3. Ballard Doubles Down on Numbers; O.U.R. in Ukraine
+4. Utah AG's Internet Crimes Against Children Task Force Ends Relationship With Operation Underground Railroad
+5. It's Time to Ask Tough Questions about Who Operation Underground Railroad Calls "Traffickers"
+
+### LDS Church Response
+
+1. LDS Church Publicly Denounces Tim Ballard, Operation Underground Railroad
+2. Mormon Apostle M. Russell Ballard: Victim or Accomplice?
+3. Operation Underground Railroad and Religious Extremism
+4. O.U.R. Attorney and Firm Kirton McConkie Helps LDS Church Cover up Sex Abuse
+5. Audio Reveals Tim Ballard and Ken Krogue Describing Elder Ballard's Prophetic Role in Building the O.U.R. Movement
+
+### Media Investigations & Public Scrutiny
+
+1. VICE News Exposes Tim Ballard's O.U.R. Poster Child "Liliana" as Elaborate Scam
+2. O.U.R.'s Batman Unmasked
+3. The Radicalization of Tim Ballard: The Prager U Endorsement
+4. O.U.R.'s Prized Propaganda Movie Embroiled in Controversy
+5. Internal Messages Reveal Angel Studios Ignored Warnings About Tim Ballard and "Sound of Freedom"
+6. 'God's Children' Deserve the Truth: Holding Tim Ballard & Rescuers Accountable — No Exceptions, No Excuses
+
+Cross-reference note: several titles here (LDS Church denouncement, VICE
+News/Liliana, LVMPD task force, "Tough Questions...Traffickers") repeat
+across Legal Archive's, Financial Archive's, and Public Claims &
+Narratives' "not pulled" lists — same articles linked from multiple
+sub-archives on ACJ's site, not distinct documents.
+
+## The Whiteboard Meeting
+
+Source: https://americancrimejournal.com/acj-investigates/operation-underground-railroad-o-u-r/the-whiteboard-meeting/
+
+Crawled 2026-08-10. **No PDFs** (grepped raw HTML, zero `.pdf` hits). This
+page is a single long-form narrative by Lynn Packer reconstructing a
+whiteboard diagram Ballard allegedly drew at a private August 2019 meeting,
+laying out non-profit/for-profit money flows, LDS-influence plans, and the
+Haiti orphanage (Foyer de Sion) angle — described in prose, not as a scanned
+or photographed original document. No image of the actual whiteboard is
+embedded/linked either.
+
+Named entities from the reconstructed diagram (for cross-referencing against
+other holdings, not independently verified here):
+
+- **Slave Stealers, LLC** (for-profit) — partners: Brian Norton, Tim
+  Ballard, M. Russell Ballard (silent partner)
+- Ballard-controlled non-profits: Operation Underground Railroad, The
+  Nazarene Fund, Children Need Families (Katherine Ballard), Liberty and
+  Light Equity Trust, Mercury One (Glenn Beck), Foyer de Sion orphanage
+  (Haiti)
+- Foyer de Sion staff named: Brad Damon (CEO), Hada Vanessa (Executive),
+  Kahea (advisor)
+
+### Resources & Further Reading (external, not ACJ-hosted, not pulled)
+
+Curated external links on the page — logged for reference, not archived
+locally since they're off-site and several are paywalled/dynamic:
+
+- Quorum of the Twelve Apostles (LDS Church) — Wikipedia
+- CharityWatch: "O.U.R. Downgraded to a Question Mark" (americancrimejournal.com, cross-listed)
+- Child Liberation Foundation — liberatechildren.org
+- "Everything Sound Of Freedom Gets Wrong About The True Story" — looper.com
+- "Tim Ballard Left O.U.R. After Investigation Into Claims Made by Employees" — vice.com
+- "'Sound of Freedom': The Wild True Story Behind 2023's Most Controversial Film" — vanityfair.com
+
+## People / Organizations & Network — not live
+
+Checked 2026-08-10: the hub page has "People" and "Organizations & Network"
+headings with descriptive text and bullet lists of names (Tim Ballard, Sean
+Reyes, Paul Hutchinson, Dave Lopez, Jon Lines, Carlos Rodriguez, M. Russell
+Ballard / Operation Underground Railroad, Aerial Recovery, Child Liberation
+Foundation, Nazarene Fund, Mercury One, Angel Studios), each followed by a
+`[Explore People]` / `[Explore Organizations]` button — but unlike the other
+five sections, **these two buttons have no `href` in the page HTML** (raw
+`<h4 class="wp-block-heading">[Explore People]</h4>` with no `<a>` wrapper,
+confirmed by direct diff against `[Explore The Whiteboard Meeting]`, which
+does have a link). These sub-archives are stubbed into the hub's layout but
+not actually published/linked anywhere on the site yet — worth flagging to
+Damion if he wants them crawled once live.
 
 ## Overlap with Existing Case Exhibits
 
