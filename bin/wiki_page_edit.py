@@ -2,6 +2,25 @@
 """
 Edit the contents of a MediaWiki page, with optional talk-page note.
 
+WARNING — read before using without --append:
+  Without --append, this script's --message/--message-file REPLACES THE
+  ENTIRE PAGE with whatever text you hand it (a full `text=` overwrite via
+  the MediaWiki API). It has no targeted find/replace and no edit-conflict
+  protection (no basetimestamp/starttimestamp) — if anyone else saved an
+  edit between when you copied the page text and when this script runs,
+  their change is silently gone, no warning, no error.
+
+  Do not use full-replace mode as a way to make a small change by editing a
+  locally-cached copy and pushing the whole thing back. For that — changing
+  one known, unique bit of text on a live page — use wiki_replace_edit.py
+  instead: it fetches the page itself at edit time, requires an exact and
+  unique match for what it's changing, refuses to guess, and rejects the
+  save outright (editconflict) rather than clobbering a concurrent edit.
+  It also supports --dry-run to show the diff before anything is posted.
+
+  Full-replace mode here is for when you genuinely intend to replace the
+  whole page (e.g. seeding new content), not as a patch mechanism.
+
 Examples:
   python3 wiki_page_edit.py "Sandbox" --message "Hello" --summary "Update sandbox" \
     --credentials tests/inputs/wiki_credentials.json
@@ -199,6 +218,19 @@ def main() -> int:
         help="Print success details to STDOUT.",
     )
     args = ap.parse_args()
+
+    if not args.append:
+        print(
+            "WARNING: no --append given, so this is a FULL-PAGE REPLACE — the "
+            "entire live page will be overwritten with --message/--message-file, "
+            "with no find/replace and no edit-conflict protection. If you're "
+            "trying to change one known bit of existing text, use "
+            "wiki_replace_edit.py instead. Proceeding in 5s (Ctrl-C to abort)...",
+            flush=True,
+        )
+        import time
+
+        time.sleep(5)
 
     message = read_message(args.message, args.message_file)
 
