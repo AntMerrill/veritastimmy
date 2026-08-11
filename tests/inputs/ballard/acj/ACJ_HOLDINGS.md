@@ -16,6 +16,8 @@ investigative archive, assayed 2026-08-09, sub-archives completed 2026-08-10.
 - Local files live in this directory (`tests/inputs/ballard/acj/`); see
   `acj_downloads_manifest.json` for the machine-readable version of this list
   (grouped by download batch `dl1`/`dl2`/`dl3`, with source URLs per file).
+- Hub page screenshot (browser chrome/URL bar visible, for provenance):
+  `screenshots/acj_derailed_hub_2026-08-11.png`.
 
 ## Legal Archive
 
