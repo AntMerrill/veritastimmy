@@ -17,7 +17,7 @@ Examples:
   python3 wiki_lang_pick.py "Tim Ballard" --list
 
   # pick version #2 and write to tests/
-  python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 1
+  python3 wiki_lang_pick.py "Tim Ballard" --pick 2
 
   # interactive: list then ask for number
   python3 wiki_lang_pick.py "Tim Ballard"
@@ -33,7 +33,6 @@ Examples:
 
   # append a message to the talk page (credentials required)
   python3 wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note" --credentials tests/inputs/wiki_credentials.json
-
 """
 
 from __future__ import annotations

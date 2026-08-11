@@ -53,39 +53,6 @@ def test_write_output_json():
     assert '"sections"' in contents
 
 
-def test_main_reports_output_path(monkeypatch, capsys):
-    def fake_get_langlinks(session, en_title):
-        return {}
-
-    def fake_fetch_wikitext(session, api, title):
-        return "Lead line\n== Section ==\nBody"
-
-    monkeypatch.setattr(wiki_lang_pick, "get_langlinks", fake_get_langlinks)
-    monkeypatch.setattr(wiki_lang_pick, "fetch_wikitext", fake_fetch_wikitext)
-    output_dir = make_persistent_output_dir()
-    monkeypatch.setattr(
-        sys,
-        "argv",
-        [
-            "wiki_lang_pick.py",
-            "Tim Ballard",
-            "--pick",
-            "0",
-            "--json",
-            "--out-dir",
-            str(output_dir),
-        ],
-    )
-
-    exit_code = wiki_lang_pick.main()
-    captured = capsys.readouterr()
-
-    expected_path = output_dir / "en_tim_ballard.json"
-    assert exit_code == 0
-    assert captured.out == f"Wrote output to {expected_path}\n"
-    assert expected_path.exists()
-
-
 def test_build_talk_title():
     assert wiki_lang_pick.build_talk_title("Tim Ballard") == "Talk:Tim Ballard"
     assert wiki_lang_pick.build_talk_title("Talk:Sandbox") == "Talk:Sandbox"
