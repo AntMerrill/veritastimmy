@@ -33,6 +33,20 @@ non-free/fair-use rationale is scoped to identifying the film in its own article
 person's bio page would likely fail WP:NFCC#8/#3a and get stripped, drawing unwanted scrutiny to
 a page with prior sock-puppetry protection.
 
+### Sound of Freedom (film) — Legal disputes section split
+
+2026-08-10, bot edits (`JustinR1970`), revs 1368781231 and 1368781273: implemented the
+"Legal disputes" section split proposed 2026-08-05 on Talk:Sound of Freedom (film) (no
+opposition). Two targeted `wiki_replace_edit.py` edits — removed the old lawsuit mention
+from `===Accuracy===`, added new `==Legal disputes==` section before References. Drafted
+in `drafts/wikipedia/sof_edit1_accuracy_old.txt` / `sof_edit1_accuracy_new.txt` and
+`sof_edit2_legaldisputes_old.txt` / `sof_edit2_legaldisputes_new.txt`; full staged
+version also in `sof_legal_disputes_section.wiki`.
+
+- [x] Both edits posted
+- [ ] Reply to the anon's tangential question about bot-posted social media claims
+      (Talk:Sound of Freedom (film), 15:26, 7 August 2026 UTC) if warranted
+
 ### Infobox image
 
 `File:Hiddenwarpromo.jpg` — theatrical poster, sourced from Angel Studios' site, uploaded by
