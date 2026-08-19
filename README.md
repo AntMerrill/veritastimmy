@@ -1,12 +1,11 @@
-# Mimesis – Audio Transcription + Source Comparison Toolkit
+# veritastimmy
+
+Wikipedia editing tools and legal-exhibit tooling.
 
 ## Quickstart
 
-1. Set up environment:
     ./setup_venv.sh
-
-2. Run full transcription:
-    ./run.sh data/original.mp4
+    source venv/bin/activate
 
 ### Conda Setup + Aliases
 
@@ -19,39 +18,51 @@ and install shell aliases from `conf/aliases.sh` into
 `~/.veritastimmy_aliases` (sourced from your shell rc files). Edit
 `conf/aliases.sh` to add your preferred shortcuts.
 
-Outputs:
-- Full transcript (.txt)
-- Per-minute JSON
-- Captions (.srt, .vtt)
-- Source article scrape
-
 ## Project Structure
 
-bin/        # Scripts (transcribe, captions, etc.)
-conf/       # Configs
-data/       # Media input
-lib/        # Local Python packages
-run.sh      # Run the pipeline
-setup_venv.sh   # One-line environment setup
-requirements.txt
+    bin/        # CLI scripts (wiki editing, PDF comparison)
+    lib/        # Local Python packages (pdf_utils)
+    conf/       # Shell aliases for setup_conda.sh
+    docs/       # Project notes (TODO, ACJ exhibits inventory)
+    scripts/    # Exhibit markdown generation helpers
+    tpl/        # Templates for generated exhibit docs
+    tests/      # Tests + fixtures (wiki samples, case documents)
+    setup_venv.sh    # venv environment setup
+    setup_conda.sh   # Conda environment + alias setup
+    requirements.txt
 
 ## Wiki Utilities
 
-Use `bin/wiki_lang_pick.py` to list a page's available language versions and
-print the selected version's raw wikitext for analysis or comparison.
+- `bin/wiki_lang_pick.py` — list a page's available language versions and
+  print the selected version's raw wikitext for analysis or comparison; can
+  also post a note to the article's talk page.
 
-Examples:
-- List language versions:
-  `python3 bin/wiki_lang_pick.py "Tim Ballard" --list`
-- Pick a version and output raw wikitext:
-  `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 2 --raw`
-- Post a note to the talk page (requires credentials JSON):
-  `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note for editors" --credentials tests/inputs/wiki_credentials.json`
-- Post a note to a user's page (requires credentials JSON):
-  `python3 bin/wiki_user_post.py "ExampleUser" --message "Hello!" --credentials tests/inputs/wiki_credentials.json`
-- Replace a user's page contents (requires credentials JSON):
-  `python3 bin/wiki_user_put.py "ExampleUser" --message "Updated content" --credentials tests/inputs/wiki_credentials.json`
-- Edit a page with a sample file + add a talk note (requires credentials JSON):
+  Examples:
+  - List language versions:
+    `python3 bin/wiki_lang_pick.py "Tim Ballard" --list`
+  - Pick a version and output raw wikitext:
+    `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 2 --raw`
+  - Post a note to the talk page (requires credentials JSON):
+    `python3 bin/wiki_lang_pick.py "Tim Ballard" --pick 0 --post-talk "Note for editors" --credentials tests/inputs/wiki_credentials.json`
+
+- `bin/wiki_replace_edit.py` — make a single, exact-match text replacement on
+  a live page. The safe, targeted way to make a small change: it fetches the
+  page itself at edit time, requires the `--old` string to match exactly
+  once, and rejects the save (editconflict) if anyone else edited the page
+  in between rather than clobbering their change. Supports `--dry-run` to
+  preview the diff before posting.
+
+  Example:
+  `python3 bin/wiki_replace_edit.py "Tim Ballard" --old "..." --new "..." --summary "..." --credentials tests/inputs/wiki_credentials.json --dry-run`
+
+- `bin/wiki_page_edit.py` — edit a page's full contents (optionally
+  `--append` instead of replace), with an optional talk-page note. Without
+  `--append`, this **replaces the entire page** with no find/replace and no
+  edit-conflict protection — prefer `wiki_replace_edit.py` for targeted
+  changes; use this only when you genuinely intend to replace/seed a whole
+  page.
+
+  Example:
   `python3 bin/wiki_page_edit.py "Sandbox" --message-file tests/inputs/wiki_page_edit_sample.txt --summary "Update sandbox" --append --talk-message-file tests/inputs/wiki_talk_sample.txt --talk-summary "Note to editors" --credentials tests/inputs/wiki_credentials.json`
 
 Credentials format (JSON):
@@ -103,33 +114,14 @@ poppler-utils (`pdfinfo`, `pdftotext`) on PATH:
 Core logic lives in `lib/pdf_utils.py`. Used to check duplicate/near-duplicate
 exhibits between the PACER-sourced case files and the ACJ archive above.
 
-## Configuration
-
-Application defaults live in `conf/app_config.json`.  At runtime
-`load_app_config()` also looks for optional per-OS overrides in
-`conf/config.json` keyed by the value of `platform.system()`.  When
-present, those settings are merged into the base configuration.
-The base config now includes a `target_usb` path which download
-scripts use as the default mount point for removable storage.
-
 ## Requirements
 
 - Python 3.9+
-- ffmpeg
-- OpenAI Whisper:
-    pip install git+https://github.com/openai/whisper.git
-- Others:
-    pip install -r requirements.txt
+- `requests` and `pytest` (`pip install -r requirements.txt`)
+- poppler-utils (`pdfinfo`, `pdftotext`) for `bin/compare_pdfs.py`
+- `exiftool` for `scripts/exif2table.sh`
 
 ## Credits
 
 Developed by BG Bear Guards – March 2025 (renamed 2026-08-05 at project owner's request; the
 prior name was an inside joke that didn't read well out of context, so it's retired.)
-
-mimesis/
-├── bin/               # CLI scripts
-├── conf/              # Configs
-├── data/              # Media input
-├── lib/               # Helper modules
-├── README.md          # ✔️ Exists
-├── requirements.txt   # ✔️ Exists
