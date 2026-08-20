@@ -13,22 +13,18 @@ If you prefer Conda, run:
 
     ./setup_conda.sh [env_name] [python_version]
 
-This will create/activate a Conda environment, install `requirements.txt`,
-and install shell aliases from `conf/aliases.sh` into
-`~/.veritastimmy_aliases` (sourced from your shell rc files). Edit
-`conf/aliases.sh` to add your preferred shortcuts.
+This will create/activate a Conda environment and install `requirements.txt`.
 
 ## Project Structure
 
     bin/        # CLI scripts (wiki editing, PDF comparison)
     lib/        # Local Python packages (pdf_utils)
-    conf/       # Shell aliases for setup_conda.sh
     docs/       # Project notes (TODO, ACJ exhibits inventory)
     scripts/    # Exhibit markdown generation helpers
     tpl/        # Templates for generated exhibit docs
     tests/      # Tests + fixtures (wiki samples, case documents)
     setup_venv.sh    # venv environment setup
-    setup_conda.sh   # Conda environment + alias setup
+    setup_conda.sh   # Conda environment setup
     requirements.txt
 
 ## Wiki Utilities
@@ -114,10 +110,41 @@ poppler-utils (`pdfinfo`, `pdftotext`) on PATH:
 Core logic lives in `lib/pdf_utils.py`. Used to check duplicate/near-duplicate
 exhibits between the PACER-sourced case files and the ACJ archive above.
 
+## Instagram Watch
+
+`bin/ig_watch_ballard.py` checks the `tim_ballard89` Instagram profile once
+per run for video posts made *today* that haven't been seen before, and
+appends each one as a link (URL, shortcode, timestamp, caption) to
+`data/dlwm_input_queue.jsonl` — a queue for downstream processing elsewhere.
+It only identifies and queues; it never downloads media, comments, or
+engagement data.
+
+    python3 bin/ig_watch_ballard.py
+
+Auth reuses Netscape-format `cookies.txt` files (as exported by yt-dlp)
+rather than an interactive login. It tries `conf/instagram.cookies.txt`,
+then `conf/instagram.cookies.2.txt`, in order, verifying each is actually
+logged in before trusting it and falling through on failure. `conf/` is
+gitignored — cookies never get committed. To convert a cookie file into a
+standalone instaloader session file instead (e.g. for reuse by another
+instaloader-based tool), use `bin/ig_cookie_bridge.py conf/some.cookies.txt`.
+
+Every run also updates `data/ig_watch_state.json` (dedup so a rerun never
+double-queues a post) and appends one line to `data/ig_watch_wakeup.log`
+summarizing what happened — meant to be the signal a downstream consumer
+checks to know whether the queue has anything new. Cron (2am daily example):
+
+    0 2 * * * cd /path/to/veritastimmy && \
+        /path/to/venv/bin/python3 bin/ig_watch_ballard.py \
+        >> data/ig_watch_cron.log 2>&1
+
+Don't increase the polling frequency without checking first — running it
+more often risks the logged-in account getting flagged.
+
 ## Requirements
 
 - Python 3.9+
-- `requests` and `pytest` (`pip install -r requirements.txt`)
+- `requests`, `pytest`, `instaloader` (`pip install -r requirements.txt`)
 - poppler-utils (`pdfinfo`, `pdftotext`) for `bin/compare_pdfs.py`
 - `exiftool` for `scripts/exif2table.sh`
 

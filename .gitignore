@@ -14,3 +14,10 @@ CLAUDE.md
 
 # Wikipedia article drafts, not for the public repo until posted
 /drafts/
+
+# IG cookies / instaloader sessions, not for the repo
+/conf/
+data/ig_watch_state.json
+data/ig_watch_wakeup.log
+data/dlwm_input_queue.jsonl
+data/ig_watch_cron.log
