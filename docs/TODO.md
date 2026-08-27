@@ -1,5 +1,26 @@
 # TODO
 
+- [ ] Transcribe the Good Newsroom / Archdiocese of New York Hidden War
+      interview video (`vimeo.com/1139346138`, embedded in
+      https://thegoodnewsroom.org/tim-ballard-discusses-his-documentary-hidden-war/).
+      The article text itself (fetched in full 2026-08-27) is only a
+      2-sentence teaser with no usable claims — the actual content, if
+      any, is spoken in the video, which Vimeo's CAPTCHA blocked a plain
+      fetch from reading. Plan: run it through `dl_wm`'s
+      `bin/call_router.py` (same Vimeo downloader/curl_cffi impersonation
+      path already proven working today on the tbfrescue Colombia video)
+      to get a real transcript. Note: `conf/app_config.json`'s
+      `vimeo_download.referer` is hardcoded to a tbfrescue.org URL, not
+      goodnewsroom.org — may or may not matter (a referer mismatch didn't
+      block the tbfrescue 7th-video fetch earlier today, so this might
+      just work unchanged).
+      If it has real content: usable as a WP:ABOUTSELF-attributed primary
+      source for Ballard's own claims (same treatment as the existing
+      Jade Warwick interview citation already in the `Tim Ballard`
+      article — not for notability, not stated as fact, always
+      "Ballard said..."). If it's the same generic premise description as
+      the text blurb, it adds nothing and this can be dropped.
+
 - [ ] `docs/subject_pattern_fake_premieres.md` — TB's claimed pattern of
       re-premiering underperforming films (~every 3 months, per John
       2026-08-27) is recorded but **not yet independently sourced**
