@@ -1,25 +1,20 @@
 # TODO
 
-- [ ] Transcribe the Good Newsroom / Archdiocese of New York Hidden War
-      interview video (`vimeo.com/1139346138`, embedded in
-      https://thegoodnewsroom.org/tim-ballard-discusses-his-documentary-hidden-war/).
-      The article text itself (fetched in full 2026-08-27) is only a
-      2-sentence teaser with no usable claims — the actual content, if
-      any, is spoken in the video, which Vimeo's CAPTCHA blocked a plain
-      fetch from reading. Plan: run it through `dl_wm`'s
-      `bin/call_router.py` (same Vimeo downloader/curl_cffi impersonation
-      path already proven working today on the tbfrescue Colombia video)
-      to get a real transcript. Note: `conf/app_config.json`'s
-      `vimeo_download.referer` is hardcoded to a tbfrescue.org URL, not
-      goodnewsroom.org — may or may not matter (a referer mismatch didn't
-      block the tbfrescue 7th-video fetch earlier today, so this might
-      just work unchanged).
-      If it has real content: usable as a WP:ABOUTSELF-attributed primary
-      source for Ballard's own claims (same treatment as the existing
-      Jade Warwick interview citation already in the `Tim Ballard`
-      article — not for notability, not stated as fact, always
-      "Ballard said..."). If it's the same generic premise description as
-      the text blurb, it adds nothing and this can be dropped.
+- [ ] **Decide what (if anything) to do with the Good Newsroom video
+      transcript.** Transcribed 2026-08-27 — turned out NOT to be an
+      empty puff piece like the article text. Real, quotable claims from
+      Ballard on camera: an origin story (wife's Ukraine foundation →
+      "aerial recovery" claiming 3,000 children/people rescued across 6
+      countries), an explicit self-comparison to Sound of Freedom ("one
+      country, Colombia... this is six countries"), and a specific
+      unverified statistic ("80% of kids who disappear... recruited from
+      their own cell phones"). Full transcript:
+      `dl_wm/outputs/2026-08-27/vimeo__1139346138/vimeo__1139346138.txt`;
+      summary with caveats: `~/Desktop/hidden_war_video_transcript_
+      2026-08-27.txt`. Usable only as WP:ABOUTSELF-attributed claims
+      ("Ballard said..."), never stated as fact — deliberately not
+      drafted into article text without John weighing in first, given
+      how claim-heavy it turned out to be.
 
 - [ ] `docs/subject_pattern_fake_premieres.md` — TB's claimed pattern of
       re-premiering underperforming films (~every 3 months, per John
