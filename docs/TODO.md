@@ -1,5 +1,55 @@
 # TODO
 
+- [ ] **`File:Hiddenwarpromo.jpg` orphaned, scheduled for deletion
+      2026-08-28.** The file carries `{{Di-orphaned non-free use|date=21
+      August 2026}}` — WP:CSD#F5's 7-day clock means it's deleted
+      **tomorrow** unless it's back in active use on an article by then.
+      Orphaned because its rationale cites `Article=Hidden War (film)`,
+      the old standalone article, which didn't survive AfD and was
+      merged into `Tim Ballard` (see `docs/wiki_drafts.md`).
+
+      Two drafted, dry-run-verified edits are staged and ready to post
+      if you decide to go ahead:
+      - `wiki_replace_edit.py "Tim Ballard" --old-file drafts/wikipedia/
+        hiddenwar_mediaappearances_image_old.txt --new-file drafts/
+        wikipedia/hiddenwar_mediaappearances_image_new.txt` — re-inserts
+        `[[File:Hiddenwarpromo.jpg|thumb|upright|...]]` into the Media
+        appearances section. Clean single-line diff, dry-run confirmed
+        2026-08-27.
+      - `wiki_replace_edit.py "File:Hiddenwarpromo.jpg" --old-file
+        drafts/wikipedia/hiddenwarpromo_file_rationale_old.txt --new-file
+        drafts/wikipedia/hiddenwarpromo_file_rationale_new.txt` —
+        replaces the stale rationale block (`Article=Hidden War (film)`,
+        no orphan tag needed) with one citing `Article=Tim Ballard`,
+        removes the `{{Di-orphaned...}}` tag. Dry-run confirmed 2026-08-27
+        after correcting the draft files, which didn't match live content
+        (an earlier version of this draft would have left the orphan tag
+        in place and added a duplicate rationale block instead of fixing
+        the stale one — fixed before anything was posted).
+
+      **Unresolved tension, flagged 2026-08-27, needs a decision before
+      posting:** `docs/wiki_drafts.md` records a deliberate 2026-08-10
+      decision to *not* put this poster on the `Tim Ballard` page — on
+      the record reasoning was that it would likely fail WP:NFCC#8/#3a
+      (non-free image not significant to a *person's* biography, only to
+      identifying a film that's now just mentioned in passing) and would
+      "draw unwanted scrutiny to a page with prior sock-puppetry
+      protection." Restoring the image now to beat the deletion clock
+      directly reopens that exact risk — on the same bot account whose
+      login was only just fixed today (see Done section below). Two
+      options, not yet decided:
+      - Let it delete tomorrow — matches the original 2026-08-10 call,
+        zero account risk.
+      - Post the staged edits anyway — saves the image, but risks a
+        revert + scrutiny of `JustinR1970` right after re-enabling it.
+
+- [ ] `docs/subject_pattern_fake_premieres.md` — TB's claimed pattern of
+      re-premiering underperforming films (~every 3 months, per John
+      2026-08-27) is recorded but **not yet independently sourced**
+      beyond the single Hidden War instance. Needs a second title/
+      re-release to check the cadence claim against before any of it
+      goes into live article text.
+
 - [ ] `bin/ig_watch_ballard.py` (Instagram Watch, see README) is built,
       committed, and covered by an offline test suite (`tests/test_ig_watch_ballard.py`,
       12/12 passing) — but has never had a successful live run against
