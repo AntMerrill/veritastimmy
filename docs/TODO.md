@@ -20,6 +20,13 @@
       loop run for ~11 minutes before being killed. Confirmed via a second
       target account (`pickleballandpitty`) that this is an
       account/session-level throttle, not specific to `tim_ballard89`.
+      **Re-tried 2026-08-27 (7 days after the last attempt)** — still
+      `429 Too Many Requests` on `tim_ballard89` (see
+      `data/ig_watch_wakeup.log`). A week of elapsed time didn't clear it,
+      so this looks less like a short-lived rate-limit cooldown and more
+      like a longer account/IP-level throttle or block on
+      `merrillp.jensen`'s session — worth considering a different cookie
+      source/account rather than just waiting longer next time.
       Remaining before this is actually done:
       - [ ] get one clean live run (needs real cooldown time first)
       - [ ] verify idempotency against real data (second run queues 0 new)
