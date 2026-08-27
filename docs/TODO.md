@@ -1,15 +1,5 @@
 # TODO
 
-- [ ] `JustinR1970` wiki bot account is inaccessible — plain password login
-      via `action=login` fails (`Login failed: Failed`) against
-      `en.wikipedia.org`. Likely needs a Bot Password
-      (`Username@AppName` + generated password from `Special:BotPasswords`)
-      rather than the account's regular password — but that requires being
-      logged into the account itself first, which we don't currently have.
-      Any write operation (`wiki_page_edit.py`, `wiki_replace_edit.py`,
-      `wiki_lang_pick.py --post-talk`) is blocked until this is resolved.
-      Read-only operations (`--list`, `--raw`, `--dry-run`) are unaffected.
-
 - [ ] `bin/ig_watch_ballard.py` (Instagram Watch, see README) is built,
       committed, and covered by an offline test suite (`tests/test_ig_watch_ballard.py`,
       12/12 passing) — but has never had a successful live run against
@@ -34,3 +24,29 @@
       Explicitly not in scope: any `dl_wm`-side intake code — this repo only
       produces the queue file, per project-owner decision to leave `dl_wm`
       alone.
+
+## Done (kept here for continuity, not just deleted)
+
+- [x] `JustinR1970` wiki bot login — resolved 2026-08-27. Root cause: the
+      account's regular password was in `tests/inputs/wiki_credentials.json`,
+      not a Bot Password — plain account-password login via `action=login`
+      doesn't work for a bot the way `Special:BotPasswords` logins do.
+      Fixed by pulling the
+      already-generated Bot Password from
+      `/mnt/windows/SharedIdent/identities.json` (bot name `Norman`) and
+      using the `MainUsername@BotName` login format (`JustinR1970@Norman`
+      + the generated bot password — see `/mnt/windows/SharedIdent/
+      identities.json` or `~/Desktop/JustinR.ident.txt` for the actual
+      value, deliberately not repeated here since this file is tracked
+      and this repo has a real GitHub remote).
+      `tests/inputs/wiki_credentials.json` itself is gitignored, so the
+      live credential stays out of git history.
+      **Verified working 2026-08-27:** login succeeded and a live test
+      edit posted successfully —
+      `python3 bin/wiki_page_edit.py "User talk:JustinR1970/sandbox"
+      --message "Bot password credential test — <UTC timestamp>" --append
+      --summary "credential test" --credentials
+      tests/inputs/wiki_credentials.json --stdout` →
+      `Updated page User talk:JustinR1970/sandbox (rev 1371641691).`
+      All write operations (`wiki_page_edit.py`, `wiki_replace_edit.py`,
+      `wiki_lang_pick.py --post-talk`) are unblocked as of this fix.
