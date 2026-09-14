@@ -129,6 +129,7 @@ def edit_page_conflict_safe(
     summary: str,
     basetimestamp: str,
     starttimestamp: str,
+    minor: bool = False,
 ) -> str:
     token = fetch_csrf_token(session, api)
     params = {
@@ -142,6 +143,10 @@ def edit_page_conflict_safe(
         "basetimestamp": basetimestamp,
         "starttimestamp": starttimestamp,
     }
+    if minor:
+        params["minor"] = True
+    else:
+        params["notminor"] = True
     res = mw_post(session, api, **params)
     if "error" in res:
         code = res["error"].get("code")
@@ -193,6 +198,11 @@ def main() -> int:
         help="Fetch the live page, show the diff, and stop without posting anything.",
     )
     ap.add_argument("--stdout", action="store_true", help="Print success details to STDOUT.")
+    ap.add_argument(
+        "--minor",
+        action="store_true",
+        help="Mark the edit as minor (sets the MediaWiki minor-edit flag).",
+    )
     args = ap.parse_args()
 
     old = read_text_arg(args.old, args.old_file, "old")
@@ -231,6 +241,7 @@ def main() -> int:
             args.summary,
             basetimestamp,
             starttimestamp,
+            minor=args.minor,
         )
         if args.stdout:
             print(f"Updated page {args.title} (rev {new_rev}).", flush=True)
