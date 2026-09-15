@@ -9,9 +9,13 @@ AUTH:
     Reuses Netscape-format cookies.txt files (e.g. exported by yt-dlp) rather
     than an interactive instaloader login. Tries each file in
     --cookie-file order (default: conf/instagram.cookies.txt, then
-    conf/instagram.cookies.2.txt), verifying login via test_login() before
-    accepting it, and falls through to the next file on failure. No
-    open-ended retrying beyond the given list.
+    conf/instagram.cookies.2.txt, then conf/instagram.cookies.goelhaddam.txt),
+    verifying login via test_login() before accepting it, and falls through
+    to the next file on failure. No open-ended retrying beyond the given
+    list. Note: cookies.txt and cookies.2.txt are actually the SAME account
+    (merrillp.jensen, ds_user_id 4067475941) — cookies.goelhaddam.txt (added
+    2026-08-27, account 'haddamgoel') is the first genuinely different
+    session in the fallback list.
 
 USAGE:
     python3 bin/ig_watch_ballard.py
@@ -161,14 +165,15 @@ def main():
         "--cookie-file", dest="cookie_files", action="append",
         default=None,
         help="Netscape-format cookies.txt to try (repeatable, in fallback order). "
-             "Defaults to conf/instagram.cookies.txt, conf/instagram.cookies.2.txt",
+             "Defaults to conf/instagram.cookies.txt, conf/instagram.cookies.2.txt, "
+             "conf/instagram.cookies.goelhaddam.txt",
     )
     parser.add_argument("--queue-file", default="data/dlwm_input_queue.jsonl", help="Path to dl_wm input queue (JSON lines)")
     parser.add_argument("--state-file", default="data/ig_watch_state.json", help="Path to dedup state file")
     parser.add_argument("--log-file", default="data/ig_watch_wakeup.log", help="Path to wake-up log dl_wm reads")
     args = parser.parse_args()
 
-    cookie_files = args.cookie_files or ["conf/instagram.cookies.txt", "conf/instagram.cookies.2.txt"]
+    cookie_files = args.cookie_files or ["conf/instagram.cookies.txt", "conf/instagram.cookies.2.txt", "conf/instagram.cookies.goelhaddam.txt"]
     queue_file = Path(args.queue_file)
     state_file = Path(args.state_file)
     log_file = Path(args.log_file)
