@@ -24,7 +24,7 @@ import matplotlib.patches as mpatches
 BASE = os.path.expanduser("~/Documents/repos/veritastimmy/inputs/collab")
 EDGES_CSV = os.path.join(BASE, "collab_edges.csv")
 NODES_CSV = os.path.join(BASE, "collab_nodes.csv")
-OUT_PNG = os.path.join(BASE, "collab_graph_clusters_2026-09-05.png")
+OUT_PNG = os.path.join(BASE, "collab_graph_clusters_2026-09-21.png")
 
 # --- cluster classification (evidence-based, conservative) ---
 
@@ -44,6 +44,23 @@ SPANISH = {
     "denisromeroroa",               # Spanish name
     "encounterministries_mexico",   # explicit "_mexico" suffix
     "andres.fearless",              # Spanish first name "Andres"
+    # --- added 2026-09-21, from icloud_pngs_2026-09-21 Collaborators review ---
+    "piedradetoqueec",              # .ec-adjacent handle, Ecuador ("Piedra de Toque")
+    "filguayaquil",                 # FIL Guayaquil - Ecuador book fair org
+    "cambioglobalparadesarrollo_",  # "Cambio Global para el Desarrollo" - Spanish org name
+    "dra.carmenpeguero",            # Spanish name/title ("Dra." = Doctora)
+    "fabriciolara.ec",              # .ec domain, Ecuador
+    "freechildhoodec",              # "ec" suffix, Ecuador (paired with chemalibreria/timballardfoundationecuador)
+    "chemalibreria",                # "Chema Libreria" - Ecuador bookstore (Ciencias Sociales)
+    "ecuavisatv",                   # Ecuavisa - Ecuadorian TV network
+    "ecuavisanoticias",             # Ecuavisa news branding
+    "rcnoticiasrd",                 # "RD" = Republica Dominicana (Dominican Republic) news branding
+    "expofamily.cl",                # .cl domain, Chile ("Expo Family" event org)
+    "margaritarojoc",               # Margarita Rojo, Expo Family Chile panelist
+    "dramariajosemancino",          # Dra. Maria Jose Mancino, Expo Family Chile panelist
+    "cuerpodextoenlacruz",          # "Cuerpo de Cristo en la Cruz" (CDXC) - Spanish religious org
+    "argueta.virginia",             # Virginia Argueta - Spanish surname, same network as sandrabronzina/chemalibreria
+    "femineidadvirtuosa",           # "Femineidad Virtuosa" - Spanish phrase branding
 }
 
 SYRIA = {
@@ -56,9 +73,22 @@ SYRIA = {
     "karim.fearless",               # Arabic first name "Karim", Fearless/Syria-adjacent
 }
 
-PORTUGUESE = set()  # no confirmed Brazil/Portuguese handle in this dataset yet -
-                     # the only Brazil signal so far (Bolsonaro post, IMG_0136) has
-                     # no Collaborators panel captured, so it contributes no edges here.
+PORTUGUESE = {
+    # added 2026-09-21, from icloud_pngs_2026-09-21 Collaborators review -
+    # first confirmed Brazil/Portuguese-language nodes with real Collaborators
+    # edges (sandrabronzina's Brazil-focused co-tags). sandrabronzina herself
+    # stays dual-cluster (original_four + portuguese) via MULTI_CLUSTER below.
+    "ritamariamatias",           # Portuguese name, tbfrescue-linked post
+    "rebecadecastrobatista",     # Portuguese name, tbfrescue-linked post
+    "ibelacamargo",              # sandrabronzina's apparent daughter, Brazil family content
+    "ageisianefreitas",          # Geisiane Freitas, Brazilian TV host
+    "herbertesmahan",            # Herbert Esmahan, Brazilian TV host
+    "larinoar",                  # Larii Souza, Brazil flag emoji in bio, Sao Paulo event
+    "maaydelara",                # Mayara de Lara, Sao Paulo bookstore event
+    "diegojjacome",              # Brazil's Camara dos Deputados visit
+    "professordiegocientista",   # same Camara dos Deputados visit
+    "danipinheirodosreis",       # same Camara dos Deputados visit
+}
 
 LDS_CRITICAL = {
     "latterdaychad",              # "Latter-day" + critical framing
@@ -66,6 +96,7 @@ LDS_CRITICAL = {
     "nauvoolegion",               # LDS historical militia reference
     "transcendental_mormon_myths",# explicit "mormon_myths"
     "mount_of_olivesids",         # grouped with this cluster per 2026-09-02 writeup
+    "ldsabuseonx",                 # added 2026-09-21: explicit "LDS abuse" framing, co-tagged with latterdaychad/transcendental_mormon_myths
 }
 
 ORIGINAL_FOUR = {
@@ -84,6 +115,11 @@ MULTI_CLUSTER = {
     # "Original 4" co-tag island AND genuinely Spanish-language content
     # ("Actualidad con Soledad").
     "actualidadconsoledad": ("original_four", "spanish"),
+    # added 2026-09-21: sandrabronzina is both the "Original 4" co-tag island
+    # member AND now has a substantial, distinct cluster of real Brazil/
+    # Portuguese-language Collaborators edges (family, TV hosts, Camara dos
+    # Deputados visit, Sao Paulo events) - a real dual membership, not a guess.
+    "sandrabronzina": ("original_four", "portuguese"),
 }
 
 CLUSTER_COLOR = {
@@ -239,7 +275,7 @@ def main():
     legend_handles = [
         mpatches.Patch(color=CLUSTER_COLOR["spanish"], label="Spanish-language cluster (Ecuador/LatAm)"),
         mpatches.Patch(color=CLUSTER_COLOR["syria"], label="Syrian/Druze cluster"),
-        mpatches.Patch(color=CLUSTER_COLOR["portuguese"], label="Portuguese/Brazil cluster (none confirmed yet)"),
+        mpatches.Patch(color=CLUSTER_COLOR["portuguese"], label="Portuguese/Brazil cluster"),
         mpatches.Patch(color=CLUSTER_COLOR["lds_critical"], label="Disfellowshipped/ex-LDS critical cluster"),
         mpatches.Patch(color=CLUSTER_COLOR["original_four"], label='"Original 4" (2026-02-07 co-tag island)'),
         mpatches.Patch(facecolor="white", edgecolor="black",
@@ -250,7 +286,7 @@ def main():
     ]
     ax.legend(handles=legend_handles, loc="lower left", fontsize=10, framealpha=0.9)
 
-    ax.set_title("Ballard-network Instagram Collaborators co-tag graph — language/region clusters (2026-09-03)",
+    ax.set_title("Ballard-network Instagram Collaborators co-tag graph — language/region clusters (updated 2026-09-21)",
                  fontsize=15)
     ax.axis("off")
     ax.set_xlim(*xlim)
