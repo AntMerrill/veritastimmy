@@ -1,5 +1,15 @@
 # TODO
 
+- [ ] **Find post URLs for the 43 timballard89-as-Collaborator posts.**
+      2026-09-22. `data/dlwm_tb_collab_posts.jsonl` — one row per
+      screenshot from `inputs/collab/collab_edges.csv` where timballard89
+      is tagged; every row is `status: "needs_url"`, `post_url: null`.
+      Fill `post_url`, and `tb_posted_own_video` (the prized ones are
+      accounts tagging TB as Collaborator when TB himself didn't put out
+      a video). Once a row has a URL it's ready for dl_wm (`dllink <url>`).
+      Hold joha_libertaria-network accounts back per the OPSEC pacing
+      rule until John gives the go-ahead.
+
 - [ ] **Screenshot sourcing pipeline — winnow the 486 phone screenshots down
       to a sourced, contact-sheeted set.** 2026-08-31, multi-stage, in
       progress:

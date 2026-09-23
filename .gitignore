@@ -15,9 +15,17 @@ CLAUDE.md
 # Wikipedia article drafts, not for the public repo until posted
 /drafts/
 
+# Raw phone screenshots staged for review, not for the public repo
+/inputs/
+
 # IG cookies / instaloader sessions, not for the repo
 /conf/
 data/ig_watch_state.json
 data/ig_watch_wakeup.log
 data/dlwm_input_queue.jsonl
+data/dlwm_collaborator_queue.jsonl
+data/dlwm_tb_collab_posts.jsonl
 data/ig_watch_cron.log
+
+# Real named individuals + personal accusation details — not for the public repo
+docs/people_called_traffickers.md
