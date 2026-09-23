@@ -29,3 +29,6 @@ data/ig_watch_cron.log
 
 # Real named individuals + personal accusation details — not for the public repo
 docs/people_called_traffickers.md
+
+# Claude Code per-machine permissions, not for the repo
+.claude/settings.local.json
