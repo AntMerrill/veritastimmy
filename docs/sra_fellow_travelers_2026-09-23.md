@@ -146,6 +146,7 @@ timeline (points 6–7, 16) and the IRA Substack.
 | Kate Talley | — | "A survivor's story of ritual abuse" | 9/21 IMG_1023; IMG_1192 |
 | Derrick Broze | FB | Posted on Owens/Leavitt/Utah ritual abuse | IMG_1192 |
 | Candace Owens, Shaun Attwood, Jacob K. Johnson | podcasts | Wider-audience amplifiers named by IRA | 9/21 IMG_1018/1019 |
+| Watcher Palmer | YouTube | Retells the Preston stake-president story second-hand ("I can't verify if it's true, but I have no reason to believe it's not"); no text shared with the others (shared_runs: 0) | ugQiIdaG3Y8 |
 
 ## A critic's counter-timeline (IMG_1210–1214)
 
@@ -228,7 +229,5 @@ turns on the Church / "Deep State") — Episode 1 lands 19 Nov 2025.
   timeline — name match only so far.
 - Riggs's stake-president post (IMG_1194): which stake president — reads as
   Preston's, confirm from the full thread.
-- Update the SRA Loop artifact to add Riggs? He was left off because the
-  real Justin Riggs (@ldsabuse) was confused with John's persona, whose
-  name is deliberately a sound-alike. They are different people.
+- Update the SRA Loop artifact to add Riggs?
 - Ingest the X data John pulled via Grok for @ldsabuse and the others.
